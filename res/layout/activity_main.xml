@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp" >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text=" int    类型" />
+        
+        <EditText
+            android:id="@+id/intDataE"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:numeric="integer"    />
+        
+        <Button
+            android:id="@+id/intInputB"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="提交"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp" >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="string类型" />
+        
+        <EditText
+            android:id="@+id/stringDataE"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"/>
+        
+        <Button
+            android:id="@+id/strngInputB"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="提交"/>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"  >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="boolean类型" />
+        
+        <EditText
+            android:id="@+id/booleanDataE"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"/>
+        
+        <Button
+            android:id="@+id/booleanInputB"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="提交"/>
+    </LinearLayout>
+    
+    	<Button
+    	    android:id="@+id/objectInputB"
+    	    android:layout_width="100dp"
+    	    android:layout_height="50dp"
+    	    android:layout_marginTop="20dp"
+    	    android:layout_gravity="center"
+    	    android:text="提交对象"/>
+</LinearLayout>
