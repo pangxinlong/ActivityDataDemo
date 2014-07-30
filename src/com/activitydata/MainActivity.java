@@ -89,10 +89,10 @@ public class MainActivity extends Activity implements OnClickListener {
 			booleanInput(Boolean.valueOf(booleanText.getText().toString()));
 			break;
 		//传递对象按钮
-	/*	case R.id.objectInputB:
+		case R.id.objectInputB:
 			ReceiveDataActivity.SerializeMethod(this);
 			break;
-	*/	default:
+		default:
 			break;
 		}
 

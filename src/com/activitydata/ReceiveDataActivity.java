@@ -23,18 +23,28 @@ public class ReceiveDataActivity extends Activity{
 		this.setContentView(R.layout.activity_receive_data);
 		initConfig();
 		initData();
-		textviewi.setText(dataI+"");
-		textviews.setText(dataS);
-		textviewb.setText(dataB+"");
+		textviewi.setText("int : "+dataI+"");
+		textviews.setText("stirng : "+dataS);
+		textviewb.setText("boolean : "+dataB+"");
 		//显示对象内容
-	//	showObject();
+		showObject();
 	}
 	
 	
 	
 	private void showObject() {
-		textObject.setText("Person name:"+myperson.getName()+"\n"+
-							"Person id:"+myperson.getId());
+		try{
+		if(""==(myperson.getName().toString())&&""==(myperson.getId().toString())){
+			Log.e("getName or getid is null","error!!!!");
+		}
+		else
+		{
+			textObject.setText("对象"+"\n"+"Person name:"+myperson.getName()+"\n"+
+					"Person id:"+myperson.getId());
+		}
+		}catch(Exception e){
+			Log.i("getName is null","getid is null");
+		}
 	}
 
 
@@ -54,7 +64,7 @@ public class ReceiveDataActivity extends Activity{
 		dataS=this.getIntent().getStringExtra("data");
 		dataB=this.getIntent().getBooleanExtra("data",dataB);
 		
-		Person myperson=(Person) getIntent().getSerializableExtra("serialize");
+		 myperson=(Person) getIntent().getSerializableExtra("serialize");
 
 	}
 	
