@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnClickListener {
 
@@ -22,6 +23,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	private EditText intText;
 	private EditText stringText;
 	private EditText booleanText;
+	
+	private TextView showBackObject;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,13 @@ public class MainActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_main);
 		init();
 		listen();
+		
+		Intent intent=getIntent();
+		Person person2=intent.getParcelableExtra("parcelable");
+		if(person2!=null){
+			showBackObject.setText("对象person2"+"\n"+"Person name :"+person2.getName()+"\n"+
+									"Person id      :"+person2.getId());
+		}
 	}
 
 	private void listen() {
@@ -53,6 +63,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		intText = (EditText) findViewById(R.id.intDataE);
 		stringText = (EditText) findViewById(R.id.stringDataE);
 		booleanText = (EditText) findViewById(R.id.booleanDataE);
+		
+		showBackObject=(TextView) findViewById(R.id.showBackObject);
 	}
 
 	@Override
@@ -90,7 +102,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 		//传递对象按钮
 		case R.id.objectInputB:
-			ReceiveDataActivity.SerializeMethod(this);
+			ReceiveDataActivity.serializeMethod(this);
 			break;
 		default:
 			break;
@@ -110,6 +122,6 @@ public class MainActivity extends Activity implements OnClickListener {
 		ReceiveDataActivity.Jump(this, dataB);
 	}
 
-	
+
 
 }

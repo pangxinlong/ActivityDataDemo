@@ -4,12 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class ReceiveDataActivity extends Activity{
 
 	TextView textviewi,textviews,textviewb;
 	TextView textObject;
+	Button back;
+	
 	int dataI;
 	String dataS;
 	boolean dataB;
@@ -33,17 +37,9 @@ public class ReceiveDataActivity extends Activity{
 	
 	
 	private void showObject() {
-		try{
-		if(""==(myperson.getName().toString())&&""==(myperson.getId().toString())){
-			Log.e("getName or getid is null","error!!!!");
-		}
-		else
-		{
-			textObject.setText("对象"+"\n"+"Person name:"+myperson.getName()+"\n"+
-					"Person id:"+myperson.getId());
-		}
-		}catch(Exception e){
-			Log.i("getName is null","getid is null");
+		if(myperson!=null){
+			textObject.setText("对象myperson"+"\n"+"Person name:"+myperson.getName()+"\n"+
+					"Person id     :"+myperson.getId());
 		}
 	}
 
@@ -55,6 +51,16 @@ public class ReceiveDataActivity extends Activity{
 		textviews=(TextView) findViewById(R.id.showDataS);
 		textviewb=(TextView) findViewById(R.id.showDataB);
 		textObject=(TextView) findViewById(R.id.showObject);
+		
+		back=(Button) findViewById(R.id.back);
+		back.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				parcelableMethod();
+			}
+		});
 	}
 
 
@@ -89,12 +95,22 @@ public class ReceiveDataActivity extends Activity{
 		context.startActivity(intent);
 	}
 
-	static void SerializeMethod(Activity context) {
+	static void serializeMethod(Activity context) {
 		Person person = new Person("test", "123456");
 		Bundle myBundle = new Bundle();
 		myBundle.putSerializable("serialize", person);
 		Intent myIntent = new Intent(context, ReceiveDataActivity.class);
 		myIntent.putExtras(myBundle);
 		context.startActivity(myIntent);
+	}
+	
+	 void parcelableMethod() {
+		Person person2 = new Person("test2", "111111");
+		Intent myIntent = new Intent();
+		Bundle myBundle=new Bundle();
+		myBundle.putParcelable("parcelable", person2);
+		myIntent.setClass(this,MainActivity.class);
+		myIntent.putExtras(myBundle);
+		startActivity(myIntent);
 	}
 }

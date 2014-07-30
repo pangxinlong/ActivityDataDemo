@@ -82,9 +82,17 @@
     
     	<Button
     	    android:id="@+id/objectInputB"
-    	    android:layout_width="100dp"
+    	    android:layout_width="wrap_content"
     	    android:layout_height="50dp"
     	    android:layout_marginTop="20dp"
     	    android:layout_gravity="center"
-    	    android:text="提交对象"/>
+    	    android:text="提交对象(Serializable)"/>
+    	
+    	
+    	<TextView
+    	    android:id="@+id/showBackObject"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:layout_marginTop="20dp"
+    	    android:layout_gravity="center"/>
 </LinearLayout>
